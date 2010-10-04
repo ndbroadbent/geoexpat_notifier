@@ -9,6 +9,7 @@
 
 <% @geoexpat_users.each do |geoexpat_user| %>
   <tr>
+    <td><%= geoexpat_user.geoexpat_id %></td>
     <td><%= geoexpat_user.username %></td>
     <td><%= link_to 'Show', geoexpat_user, :class => 'button' %> |
         <%= link_to 'Edit', edit_geoexpat_user_path(geoexpat_user), :class => 'button' %> |

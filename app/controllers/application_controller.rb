@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
 
   def retrieve_last_run_time
     last_run_file = File.join(Rails.root, 'config', 'last_run.yml')
-    @last_run = YAML.load_file(last_run_file) || {}
+    @last_run = YAML.load_file(last_run_file) || {} rescue {}
   end
 
 end

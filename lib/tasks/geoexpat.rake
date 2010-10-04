@@ -94,7 +94,6 @@ namespace :filters do
 
       params = { :geoexpat_id => id,
                  :category => @filter.category,
-                 :geoexpat_user_attributes => geoexpat_user,
                  :classified_photos_attributes => photos,
                  :title => title,
                  :description => description,
@@ -104,7 +103,10 @@ namespace :filters do
                  :location => location,
                  :list_date => date }
 
-      Classified.create!(params)
+      classified = Classified.new(params)
+      classified.geoexpat_user = GeoexpatUser.find_or_create_by_geoexpat_id(geoexpat_user)
+      classified.save!
+
       @added_classifieds += 1
 
     end
@@ -135,7 +137,7 @@ namespace :filters do
     puts "===== Added #{@added_classifieds} classifieds."
 
     last_run_file = File.join(Rails.root, 'config', 'last_run.yml')
-    last_run = YAML.load_file(last_run_file) || {}
+    last_run = YAML.load_file(last_run_file) || {} rescue {}
     last_run["filters:check"] = Time.now
 
     # Save last run time to a yaml file.

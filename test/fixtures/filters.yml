@@ -6,6 +6,15 @@ one:
   from_price: 2000.00
   to_price: 3700.00
   query: iphone 4
-  contains_all_words: iphone
-  contains_no_words: brand new, dont contain this
+  contains_all_words: iphone 4
+  contains_no_words: brand new
+
+two:
+  user_id: <%= User.first.id %>
+  category_id: 285
+  from_price: 1500.00
+  to_price: 3500.00
+  query: iphone 3GS
+  contains_all_words: iphone, 3gs
+  contains_no_words: brand new
 

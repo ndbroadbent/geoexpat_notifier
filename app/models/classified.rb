@@ -8,7 +8,6 @@ class Classified < ActiveRecord::Base
   has_many :classified_photos
 
   accepts_nested_attributes_for :classified_photos
-  accepts_nested_attributes_for :geoexpat_user
 
   after_create :find_filter_matches
 
