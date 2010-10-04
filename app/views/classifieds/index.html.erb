@@ -1,0 +1,20 @@
+<h1>Listing classifieds</h1>
+
+<table>
+  <tr>
+    <th>Title (&amp; link to geoexpat page)</th>
+    <th>Price</th>
+    <th>Photos</th>
+    <th width="250px">Actions</th>
+  </tr>
+
+<% @classifieds.each do |classified| %>
+  <%= render :partial => "shared/classified_row", :locals => {:classified => classified} %>
+<% end %>
+
+</table>
+
+<hr/>
+
+<%= will_paginate @classifieds %>
+

@@ -1,0 +1,53 @@
+<table>
+  <tbody>
+    <tr>
+      <th>ID:</th>
+      <td><%= @classified.geoexpat_id %></td>
+    </tr>
+    <tr>
+      <th>Date Listed:</th>
+      <td><%= @classified.list_date %></td>
+    </tr>
+    <tr>
+      <th>Number of page views so far:</th>
+      <td><%= @classified.views %></td>
+    </tr>
+    <tr>
+      <th>Advertiser (user):</th>
+      <td><%= @classified.geoexpat_user.username %> (<%= @classified.geoexpat_user.geoexpat_id %>)</td>
+    </tr>
+    <tr>
+      <th>Category:</th>
+      <td><%= @classified.category.name %></td>
+    </tr>
+    <tr>
+      <th>Photos:</th>
+      <td>
+        <% @classified.photos.each do |photo| %>
+          <%= image_tag photo.url %>
+        <% end %>
+      </td>
+    </tr>
+    <tr>
+      <th>Title:</th>
+      <td><%= @classified.title %></td>
+    </tr>
+    <tr>
+      <th>Price:</th>
+      <td><%= number_to_currency @classified.price %></td>
+    </tr>
+    <tr>
+      <th>Description:</th>
+      <td><%= @classified.description.gsub("\n", "<br/>").html_safe %></td>
+    </tr>
+    <tr>
+      <th>Condition:</th>
+      <td><%= @classified.condition %></td>
+    </tr>
+    <tr>
+      <th>Location:</th>
+      <td><%= @classified.location %></td>
+    </tr>
+  </tbody>
+</table>
+

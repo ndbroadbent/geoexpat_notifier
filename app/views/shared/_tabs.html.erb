@@ -1,0 +1,10 @@
+<div id="tabs">
+  <% tabs_tag do |tab| %>
+    <%= tab.filters        'Filters',        filters_path %>
+    <%= tab.classifieds    'Classifieds',    classifieds_path %>
+    <%= tab.geoexpat_users 'Geoexpat Users', geoexpat_users_path %>
+    <%= tab.categories     'Categories',     categories_path %>
+    <%= tab.users          'Users',          users_path %>
+  <% end %>
+</div>
+

@@ -1,0 +1,55 @@
+<%= form_for(@filter) do |f| %>
+  <% if @filter.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@filter.errors.count, "error") %> prohibited this filter from being saved:</h2>
+
+      <ul>
+      <% @filter.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :category %><br />
+    <%= f.collection_select :category_id, Category.all.sort{|a,b| a.name <=> b.name }, :id, :name %>
+  </div>
+  <div class="field">
+    <%= f.label :query %><br />
+    <%= f.text_field :query %>
+  </div>
+  <div class="field">
+    <%= f.label :from_price %><br />
+    $&nbsp;<%= f.text_field :from_price %>
+  </div>
+  <div class="field">
+    <%= f.label :to_price %><br />
+    $&nbsp;<%= f.text_field :to_price %>
+  </div>
+  <h3>(The following 'Contains' fields take comma separated values.)</h3>
+  <div class="field">
+    <%= f.label :contains_all_words, 'Contains all of these words:' %><br />
+    <%= f.text_field :contains_all_words %>
+  </div>
+  <div class="field">
+    <%= f.label :contains_any_words, 'Contains any of these words:' %><br />
+    <%= f.text_field :contains_any_words %>
+  </div>
+  <div class="field">
+    <%= f.label :contains_any_words, 'Contains none of these words:' %><br />
+    <%= f.text_field :contains_no_words %>
+  </div>
+
+  <div class="field">
+    <%= f.label :user, 'Notify this user by email:' %><br />
+    <%= f.collection_select :user_id, User.all, :id, :name %>
+  </div>
+
+  <hr/>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+

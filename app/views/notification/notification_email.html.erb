@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  </head>
+  <body>
+    <h1>Hi <%= @user.name %>,</h1>
+    <p>
+      A new classified on geoexpat.com has matched one or more of your filters:
+    </p>
+
+    <%= render :partial => "shared/filter" %>
+
+    <h2>Classified:</h2>
+
+    <%= render :partial => "shared/classified" %>
+
+  </body>
+</html>
+

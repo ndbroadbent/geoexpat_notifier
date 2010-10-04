@@ -1,0 +1,26 @@
+<h1>Listing categories</h1>
+
+<h3>
+  <%= link_to 'Destroy All', "categories/all", :confirm => 'Are you sure?', :method => :delete, :class => 'button' %>
+</h3>
+
+<table>
+  <tr>
+    <th>Category Name</th>
+    <th>Category ID</th>
+    <th>Action</th>
+  </tr>
+
+<% @categories.each do |category| %>
+  <tr>
+    <td><%= link_to category.name, category.url %></td>
+    <td><%= category.id %></td>
+    <td><%= link_to 'Destroy', category, :confirm => 'Are you sure?', :method => :delete, :class => 'button' %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Category', new_category_path, :class => 'button' %>
+

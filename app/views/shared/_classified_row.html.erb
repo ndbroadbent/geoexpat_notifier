@@ -1,0 +1,16 @@
+<tr>
+  <td><%= link_to classified.title, classified.url, :class => 'smalltitle' %></td>
+  <td><%= number_to_currency classified.price %></td>
+  <td>
+    <% if classified.photos.empty? %>
+      No Image
+    <% else %>
+      <% classified.photos.each do |photo| %>
+        <%= image_tag photo.thumb_url %>
+      <% end %>
+    <% end %>
+  <td><%= link_to 'Show (Internal)', classified, :class => 'button' %> |
+  <%= link_to 'Edit', edit_classified_path(classified), :class => 'button' %> |
+  <%= link_to 'Destroy', classified, :confirm => 'Are you sure?', :method => :delete, :class => 'button' %></td>
+</tr>
+

@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<%= render :partial => "shared/filter" %>
+
+<p>
+  <%= link_to 'Edit', edit_filter_path(@filter), :class => 'button' %> |
+  <%= link_to 'Back', filters_path, :class => 'button' %>
+</p>
+
+<hr/>
+
+<h2>Matching Classifieds</h2>
+
+<% if @matching_classifieds.any? %>
+  <table>
+    <tr>
+      <th>Title (&amp; link to geoexpat page)</th>
+      <th>Price</th>
+      <th>Photos</th>
+      <th width="250px">Actions</th>
+    </tr>
+  <% @matching_classifieds.each do |classified| %>
+    <%= render :partial => "shared/classified_row", :locals => {:classified => classified} %>
+  <% end %>
+  </table>
+<% else %>
+  <p>None.</p>
+<% end %>
+

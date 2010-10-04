@@ -1,0 +1,33 @@
+<table>
+  <tbody>
+    <tr>
+      <th>Category:</th>
+      <td><%= @filter.category.name %></td>
+    </tr>
+    <tr>
+      <th>Query:</th>
+      <td><%= @filter.query %></td>
+    </tr>
+    <tr>
+      <th>From Price:</th>
+      <td><%= number_to_currency @filter.from_price %></td>
+    </tr>
+    <tr>
+      <th>To Price:</th>
+      <td><%= number_to_currency @filter.to_price %></td>
+    </tr>
+    <tr>
+      <th>Contains <b>all</b> words:</th>
+      <td><%= csv_to_boxes @filter.contains_all_words %></td>
+    </tr>
+    <tr>
+      <th>Contains <b>any</b> words:</th>
+      <td><%= csv_to_boxes @filter.contains_any_words %></td>
+    </tr>
+    <tr>
+      <th>Contains <b>no</b> words:</th>
+      <td><%= csv_to_boxes @filter.contains_no_words %></td>
+    </tr>
+  </tbody>
+</table>
+

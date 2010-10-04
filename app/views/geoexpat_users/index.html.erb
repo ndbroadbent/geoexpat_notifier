@@ -1,0 +1,21 @@
+<h1>Listing Geoexpat Users</h1>
+
+<table>
+  <tr>
+    <th>User ID</th>
+    <th>Username</th>
+    <th>Actions</th>
+  </tr>
+
+<% @geoexpat_users.each do |geoexpat_user| %>
+  <tr>
+    <td><%= geoexpat_user.username %></td>
+    <td><%= link_to 'Show', geoexpat_user, :class => 'button' %> |
+        <%= link_to 'Edit', edit_geoexpat_user_path(geoexpat_user), :class => 'button' %> |
+        <%= link_to 'Destroy', geoexpat_user, :confirm => 'Are you sure?', :method => :delete, :class => 'button' %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+

@@ -1,0 +1,34 @@
+<h1>Listing filters</h1>
+
+<table>
+
+  <tr>
+    <th>Query</th>
+    <th>Price Range</th>
+    <th>Notify User</th>
+    <th>Actions</th>
+  </tr>
+
+<% @filters.each do |filter| %>
+
+  <tr>
+    <td><%= filter.query %></td>
+    <td>$<%= filter.from_price %> - $<%= filter.to_price %></td>
+    <td><%= filter.user.name %></td>
+    <td><%= link_to 'Show', filter, :class => 'button' %> |
+    <%= link_to 'Edit', edit_filter_path(filter), :class => 'button' %> |
+    <%= link_to 'Delete', filter, :confirm => 'Are you sure?', :method => :delete, :class => 'button' %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<p>
+  <%= link_to 'New Filter', new_filter_path, :class => 'button' %>
+</p>
+
+<hr/>
+
+<%= will_paginate @filters %>
+
