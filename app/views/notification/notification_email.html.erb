@@ -11,7 +11,7 @@
 
     <%= render :partial => "shared/filter" %>
 
-    <h2>Classified:</h2>
+    <h2><%= link_to @classified.title, @classified.url %></h2>
 
     <%= render :partial => "shared/classified" %>
 
