@@ -3,4 +3,5 @@ db/*.sqlite3
 log/*.log
 tmp/**/*
 config/gmail.yml
+config/last_run.yml
 

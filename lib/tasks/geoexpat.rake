@@ -133,6 +133,16 @@ namespace :filters do
     end
     puts "===== Scanned #{searched_queries.size} queries."
     puts "===== Added #{@added_classifieds} classifieds."
+
+    last_run_file = File.join(Rails.root, 'config', 'last_run.yml')
+    last_run = YAML.load_file(last_run_file) || {}
+    last_run["filters:check"] = Time.now
+
+    # Save last run time to a yaml file.
+    File.open(last_run_file, "w") do |f|
+      f.write(last_run.to_yaml)
+    end
+
   end
 end
 

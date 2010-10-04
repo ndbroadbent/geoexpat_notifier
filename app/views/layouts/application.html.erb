@@ -11,6 +11,14 @@
       <div id="header">
         <%= render :partial => "shared/tabs" %>
       </div>
+      <div>
+        <p><small>Rake task last run times:</small>
+          <% @last_run.each do |rake_task, time| %>
+            <b><%= rake_task %></b>: <i><%= time %></i>&nbsp;&nbsp;
+          <% end %>
+        </p>
+        <hr/>
+      </div>
       <div id="content">
         <%= yield %>
       </div>
