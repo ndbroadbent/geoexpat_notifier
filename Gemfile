@@ -8,3 +8,7 @@ gem "will_paginate", "~> 3.0.pre2"
 gem 'ruby-debug'
 gem 'whenever'
 
+gem "mongrel"
+gem "cgi_multipart_eof_fix"
+gem "fastthread"
+gem "mongrel_experimental"
